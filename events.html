@@ -4,25 +4,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Our Events Timeline 🗓</title>
-  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <a href="index.html" class="back-link">⬅ Back</a>
   <h1>Our Events Timeline 🗓</h1>
 
-  <div class="timeline">
+  <div class="event-input">
+    <input type="date" id="event-date">
+    <input type="time" id="event-time">
+    <input type="text" id="event-text" placeholder="Describe the memory...">
+    <button onclick="addEvent()">Add Event</button>
+  </div>
+
+  <div class="timeline" id="timeline">
     <div class="event">
-      <h3>Sept 1, 2022</h3>
-      <p>Our very first date ❤️</p>
-    </div>
-    <div class="event">
-      <h3>Dec 25, 2022</h3>
-      <p>Our first Christmas together 🎄</p>
-    </div>
-    <div class="event">
-      <h3>Jul 20, 2023</h3>
-      <p>Summer road trip memories 🚗</p>
+      <h3>2021-09-19</h3>
+      <p>Our very first date ❤️. the day after eating bbq chicken nachos.
+      </p>
     </div>
   </div>
+
+  <script>
+    // Add Event to Timeline
+    function addEvent() {
+      const date = document.getElementById('event-date').value;
+      const time = document.getElementById('event-time').value;
+      const text = document.getElementById('event-text').value;
+
+      if (!date || !text) {
+        alert("Please add at least a date and description!");
+        return;
+      }
+
+      const timeline = document.getElementById("timeline");
+      const eventDiv = document.createElement("div");
+      eventDiv.className = "event";
+      eventDiv.innerHTML = `<h3>${date} ${time || ""}</h3><p>${text}</p>`;
+      timeline.appendChild(eventDiv);
+
+      document.getElementById('event-date').value = "";
+      document.getElementById('event-time').value = "";
+      document.getElementById('event-text').value = "";
+    }
+  </script>
 </body>
 </html>

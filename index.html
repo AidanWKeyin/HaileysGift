@@ -1,22 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Our Memory Hub ❤️</title>
-  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="main-wrapper">
-    <h1>Our Memory Hub ❤️</h1>
-    <p>Explore all our memories and dreams in one place!</p>
+  <div id="hearts-container" aria-hidden="true"></div>
+
+  <main class="main-wrapper">
+    <h1>Our Love Page ❤️</h1>
+    <p class="subtitle"></p>
+
+    <div id="sweet-message" class="sweet-message" role="status" aria-live="polite"></div>
 
     <nav class="nav-links">
       <a href="collage.html">📸 Collage</a>
       <a href="bucket.html">🎯 Bucket List</a>
       <a href="events.html">🗓 Events Timeline</a>
-      <a href="folder.html">📂 Inside Jokes / Notes</a>
+      <a href="folder.html">📂 Loveable Things About Us</a>
     </nav>
-  </div>
+  </main>
+
+  <footer class="footer">
+    <span id="loveTimer"></span>
+  </footer>
+
+  <!-- scripts: hearts first, then timer (timer may call spawnBurst) -->
+  <script src="hearts.js"></script>
+  <script src="love-timer.js"></script>
+
+  <!-- sweet messages (simple inline) -->
+  <script>
+    (function(){
+      const messages = [
+        "I love you more than words can say ❤️",
+        "You make every day brighter 🌞",
+        "I can't wait for our next adventure ✨",
+        "You're my favorite person in the universe 🌌",
+        "Forever isn't long enough with you 💕",
+        "Every moment with you is a treasure 🥰",
+        "You make my heart skip a beat 💓",
+        "With you, I've found my home 🏡",
+        "You are my greatest adventure 🌍",
+        "I fall in love with you all over again, every day 💖",
+      ];
+      const el = document.getElementById('sweet-message');
+      function show() {
+        el.textContent = messages[Math.floor(Math.random()*messages.length)];
+      }
+      show();
+      setInterval(show, 5000);
+    })();
+  </script>
 </body>
 </html>

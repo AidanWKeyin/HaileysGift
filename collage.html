@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Our Collage ❤️</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <a href="index.html" class="back-link">⬅ Back</a>
+  <h1>Our Collage ❤️</h1>
+
+  <div class="collage-grid">
+    <img src="images/photo1.jpg" alt="Memory 1">
+    <img src="images/photo2.jpg" alt="Memory 2">
+    <img src="images/photo3.jpg" alt="Memory 3">
+    <img src="images/photo4.jpg" alt="Memory 4">
+    <img src="images/photo5.jpg" alt="Memory 5">
+    <!-- Add more photos as you like -->
+  </div>
+
+  <script>
+    // Floating Hearts Effect
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "floating-heart";
+      heart.innerText = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (3 + Math.random() * 2) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }, 700);
+  </script>
+</body>
+</html>
